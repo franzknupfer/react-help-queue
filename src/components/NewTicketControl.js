@@ -10,19 +10,16 @@ class NewTicketControl extends React.Component {
       formVisibleOnPage: false,
       masterTicketList: []
     };
-    this.handleClick = this.handleClick.bind(this);
-    this.handleAddingNewTicketToList = this.handleAddingNewTicketToList.bind(this);
   }
 
-  handleClick() {
+  handleClick = () => {
     this.setState({formVisibleOnPage: true});
-    console.log(this.state);
   }
 
-  handleAddingNewTicketToList(newTicket){
+  handleAddingNewTicketToList = (newTicket) => {
     const newMasterTicketList = this.state.masterTicketList.slice().concat(newTicket);
     this.setState({masterTicketList: newMasterTicketList});
-    this.setState({formVisibleOnPage: false})
+    this.setState({formVisibleOnPage: false});
   }
 
   render(){
