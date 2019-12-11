@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { v4 } from 'uuid';
 
 function NewTicketForm(props){
+<<<<<<< HEAD
   let names = null;
   let location = null;
   let issue = null;
@@ -12,6 +14,11 @@ function NewTicketForm(props){
     names.value = '';
     location.value = '';
     issue.value = '';
+=======
+  function handleNewTicketFormSubmission(event) {
+    event.preventDefault();
+    props.onNewTicketCreation({names: event.target.names.value, location: event.target.location.value, issue: event.target.issue.value, id: v4()});
+>>>>>>> 88ac8f51db1e3fc05ea2a652f31d6d103f18ad4a
   }
 
   return (
@@ -19,6 +26,7 @@ function NewTicketForm(props){
       <form onSubmit={handleNewTicketFormSubmission}>
         <input
           type='text'
+<<<<<<< HEAD
           id='names'
           placeholder='Pair Names'
           ref={(input) => {names = input;}}/>
@@ -31,6 +39,17 @@ function NewTicketForm(props){
           id='issue'
           placeholder='Describe your issue.'
           ref={(textarea) => {issue = textarea;}}/>
+=======
+          name='names'
+          placeholder='Pair Names' />
+        <input
+          type='text'
+          name='location'
+          placeholder='Location' />
+        <textarea
+          name='issue'
+          placeholder='Describe your issue.' />
+>>>>>>> 88ac8f51db1e3fc05ea2a652f31d6d103f18ad4a
         <button type='submit'>Help!</button>
       </form>
     </React.Fragment>
