@@ -16,7 +16,8 @@ class NewTicketControl extends React.Component {
 
   handleClick = () => {
     this.setState(oldState => ({
-      formVisibleOnPage: !oldState.formVisibleOnPage
+      formVisibleOnPage: !oldState.formVisibleOnPage,
+      selectedTicket: null
     }));
   }
 
@@ -41,7 +42,8 @@ class NewTicketControl extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null;
     if (this.state.selectedTicket != null) {
-      currentlyVisibleState = <TicketDetail ticket = {this.state.selectedTicket} onDeleting = {this.handleDeletingTicket} />
+      currentlyVisibleState = <TicketDetail ticket = {this.state.selectedTicket} onClickingDelete = {this.handleDeletingTicket} />
+      buttonText = "Return to Ticket List";
     }
     else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewTicketForm onNewTicketCreation={this.handleAddingNewTicketToList} />;
