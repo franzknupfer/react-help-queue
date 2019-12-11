@@ -17,7 +17,7 @@ class NewTicketControl extends React.Component {
   }
 
   handleAddingNewTicketToList = (newTicket) => {
-    const newMasterTicketList = this.state.masterTicketList.slice().concat(newTicket);
+    const newMasterTicketList = this.state.masterTicketList.concat(newTicket);
     this.setState({masterTicketList: newMasterTicketList});
     this.setState({formVisibleOnPage: false});
   }

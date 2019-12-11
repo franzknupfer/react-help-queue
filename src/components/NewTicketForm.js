@@ -2,16 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function NewTicketForm(props){
-  let _names = null;
-  let _location = null;
-  let _issue = null;
+  let names = null;
+  let location = null;
+  let issue = null;
 
   function handleNewTicketFormSubmission(event) {
     event.preventDefault();
-    props.onNewTicketCreation({names: _names.value, location: _location.value, issue: _issue.value});
-    _names.value = '';
-    _location.value = '';
-    _issue.value = '';
+    props.onNewTicketCreation({names: names.value, location: location.value, issue: issue.value});
+    names.value = '';
+    location.value = '';
+    issue.value = '';
   }
 
   return (
@@ -21,16 +21,16 @@ function NewTicketForm(props){
           type='text'
           id='names'
           placeholder='Pair Names'
-          ref={(input) => {_names = input;}}/>
+          ref={(input) => {names = input;}}/>
         <input
           type='text'
           id='location'
           placeholder='Location'
-          ref={(input) => {_location = input;}}/>
+          ref={(input) => {location = input;}}/>
         <textarea
           id='issue'
           placeholder='Describe your issue.'
-          ref={(textarea) => {_issue = textarea;}}/>
+          ref={(textarea) => {issue = textarea;}}/>
         <button type='submit'>Help!</button>
       </form>
     </React.Fragment>
